@@ -387,13 +387,12 @@
         errors.push("• Please select your Gender");
     }
 
-    // ❌ agar kuch bhi missing hai
+    
     if (errors.length > 0) {
         alert(errors.join("\n"));
         return;
     }
 
-    // ✅ sab sahi hai → game start
     currentPlayer = { name, age, gender };
     localStorage.setItem("currentPlayer", JSON.stringify(currentPlayer));
     localStorage.setItem("gameActive", "true");
@@ -807,7 +806,6 @@ Hints Used: ${totalHints - hintLeft}<br>
 function renderLeaderboard(level, history, container) {
     let data = history.filter(h => h.difficulty === level);
 
-    // ✅ NO GAMES CASE (per difficulty)
     if (data.length === 0) {
         container.innerHTML = `
             <p style="
